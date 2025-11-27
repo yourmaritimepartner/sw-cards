@@ -5,6 +5,22 @@ const path = require('path');
 // Employee data
 const employees = [
   {
+    firstName: 'Spencer',
+    lastName: 'Barnes',
+    email: 'sbarnes@shipwright.biz',
+    phone: '440-503-2328',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Griffen',
+    lastName: 'Bono',
+    email: 'gbono@shipwright.biz',
+    phone: '603-244-8630',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
     firstName: 'John',
     lastName: 'Dixon',
     email: 'jdixon@shipwright.biz',
@@ -29,10 +45,26 @@ const employees = [
     website: 'https://www.shipwright.biz'
   },
   {
-    firstName: 'Jakob',
-    lastName: 'Michels',
-    email: 'jmichels@shipwright.biz',
-    phone: '772-485-6417',
+    firstName: 'Ivan',
+    lastName: 'Kuznetsov',
+    email: 'ikuznetsov@shipwright.biz',
+    phone: '352-281-4421',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'James',
+    lastName: 'LaCour',
+    email: 'jlacour@shipwright.biz',
+    phone: '904-521-1874',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Joseph',
+    lastName: 'Montgomery',
+    email: 'jmontgomery@shipwright.biz',
+    phone: '561-572-5715',
     linkedin: 'https://www.linkedin.com/company/shipwright/',
     website: 'https://www.shipwright.biz'
   },
@@ -41,6 +73,14 @@ const employees = [
     lastName: 'Page',
     email: 'cpage@shipwright.biz',
     phone: '239-450-0120',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Hugo',
+    lastName: 'Pimentel',
+    email: 'hpimentel@shipwright.biz',
+    phone: '248-805-9107',
     linkedin: 'https://www.linkedin.com/company/shipwright/',
     website: 'https://www.shipwright.biz'
   }

@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Kuznetsov;Ivan;;;
+FN:Ivan Kuznetsov
+ORG:Shipwright
+TEL;TYPE=CELL:+13522814421
+EMAIL;TYPE=WORK:ikuznetsov@shipwright.biz
+URL;TYPE=WORK:https://www.shipwright.biz
+URL;TYPE=PREF:https://cards.shipwright.biz/ivan-kuznetsov.html
+END:VCARD

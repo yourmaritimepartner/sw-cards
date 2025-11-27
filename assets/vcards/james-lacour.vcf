@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:LaCour;James;;;
+FN:James LaCour
+ORG:Shipwright
+TEL;TYPE=CELL:+19045211874
+EMAIL;TYPE=WORK:jlacour@shipwright.biz
+URL;TYPE=WORK:https://www.shipwright.biz
+URL;TYPE=PREF:https://cards.shipwright.biz/james-lacour.html
+END:VCARD

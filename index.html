@@ -54,17 +54,17 @@
     }
     .index-header-content {
       padding: 0 1rem 2rem;
-      background: var(--color-bg-subtle);
+      margin-top: -10px;
+      position: relative;
     }
     .index-header .logo {
       width: 216px;
-      margin: 1.5rem auto;
+      margin: 0 auto 1.5rem;
       display: block;
       border-radius: 8px;
       background: white;
       padding: 12px;
       border: 1px solid rgba(0, 0, 0, 0.06);
-      transform: translateX(-4px); /* Nudge left to visually center */
     }
     .index-header h1 {
       display: none;
@@ -73,14 +73,34 @@
       display: none;
     }
     
+    /* Leader row - centered */
+    .leader-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto 1.5rem;
+      padding: 0 1rem;
+      flex-wrap: wrap;
+    }
+    .leader-row .employee-card {
+      width: 300px;
+      flex-shrink: 0;
+    }
+    
     /* Card grid */
     .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 1rem 2rem;
+    }
+    .card-grid .employee-card {
+      width: 300px;
+      flex-shrink: 0;
     }
     .employee-card {
       background: var(--color-bg);
@@ -177,16 +197,53 @@
       </div>
     </header>
     
-    <div class="card-grid">
+    <div class="leader-row">
       
       <div class="employee-card">
-        <h2>John Dixon</h2>
+        <h2>John Dixon, P.E.</h2>
         <div class="contact">
           <a href="mailto:jdixon@shipwright.biz">jdixon@shipwright.biz</a>
           <a href="tel:+19542490127">(954) 249-0127</a>
         </div>
         <div class="card-links">
           <a href="john-dixon.html">View Card →</a>
+        </div>
+      </div>
+      
+      <div class="employee-card">
+        <h2>Corey Page, P.E.</h2>
+        <div class="contact">
+          <a href="mailto:cpage@shipwright.biz">cpage@shipwright.biz</a>
+          <a href="tel:+12394500120">(239) 450-0120</a>
+        </div>
+        <div class="card-links">
+          <a href="corey-page.html">View Card →</a>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="card-grid">
+      
+      <div class="employee-card">
+        <h2>Spencer Barnes</h2>
+        <div class="contact">
+          <a href="mailto:sbarnes@shipwright.biz">sbarnes@shipwright.biz</a>
+          <a href="tel:+14405032328">(440) 503-2328</a>
+        </div>
+        <div class="card-links">
+          <a href="spencer-barnes.html">View Card →</a>
+        </div>
+      </div>
+      
+      <div class="employee-card">
+        <h2>Griffen Bono</h2>
+        <div class="contact">
+          <a href="mailto:gbono@shipwright.biz">gbono@shipwright.biz</a>
+          <a href="tel:+16032448630">(603) 244-8630</a>
+        </div>
+        <div class="card-links">
+          <a href="griffen-bono.html">View Card →</a>
         </div>
       </div>
       
@@ -213,24 +270,46 @@
       </div>
       
       <div class="employee-card">
-        <h2>Jakob Michels</h2>
+        <h2>Ivan Kuznetsov</h2>
         <div class="contact">
-          <a href="mailto:jmichels@shipwright.biz">jmichels@shipwright.biz</a>
-          <a href="tel:+17724856417">(772) 485-6417</a>
+          <a href="mailto:ikuznetsov@shipwright.biz">ikuznetsov@shipwright.biz</a>
+          <a href="tel:+13522814421">(352) 281-4421</a>
         </div>
         <div class="card-links">
-          <a href="jakob-michels.html">View Card →</a>
+          <a href="ivan-kuznetsov.html">View Card →</a>
         </div>
       </div>
       
       <div class="employee-card">
-        <h2>Corey Page</h2>
+        <h2>James LaCour</h2>
         <div class="contact">
-          <a href="mailto:cpage@shipwright.biz">cpage@shipwright.biz</a>
-          <a href="tel:+12394500120">(239) 450-0120</a>
+          <a href="mailto:jlacour@shipwright.biz">jlacour@shipwright.biz</a>
+          <a href="tel:+19045211874">(904) 521-1874</a>
         </div>
         <div class="card-links">
-          <a href="corey-page.html">View Card →</a>
+          <a href="james-lacour.html">View Card →</a>
+        </div>
+      </div>
+      
+      <div class="employee-card">
+        <h2>Joseph Montgomery</h2>
+        <div class="contact">
+          <a href="mailto:jmontgomery@shipwright.biz">jmontgomery@shipwright.biz</a>
+          <a href="tel:+15615725715">(561) 572-5715</a>
+        </div>
+        <div class="card-links">
+          <a href="joseph-montgomery.html">View Card →</a>
+        </div>
+      </div>
+      
+      <div class="employee-card">
+        <h2>Hugo Pimentel</h2>
+        <div class="contact">
+          <a href="mailto:hpimentel@shipwright.biz">hpimentel@shipwright.biz</a>
+          <a href="tel:+12488059107">(248) 805-9107</a>
+        </div>
+        <div class="card-links">
+          <a href="hugo-pimentel.html">View Card →</a>
         </div>
       </div>
       

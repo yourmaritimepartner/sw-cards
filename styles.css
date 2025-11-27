@@ -82,13 +82,13 @@ body {
 }
 
 .logo {
-  width: 150px;
+  width: 172px;
   height: auto;
   display: block;
-  border-radius: var(--radius-sm);
+  border-radius: 8px;
   background: white;
-  padding: 6px;
-  box-shadow: var(--shadow-md);
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* ===== OPTION D: Avatar + Logo Badge ===== */
@@ -260,7 +260,7 @@ body {
     padding-top: 0;
   }
   .banner { height: 160px; }
-  .logo { width: 170px; }
+  .logo { width: 196px; }
   .avatar { width: 120px; height: 120px; font-size: 2.75rem; }
   .logo-badge { width: 60px; height: 60px; right: calc(50% - 80px); }
   .card h1 { font-size: 2rem; }
