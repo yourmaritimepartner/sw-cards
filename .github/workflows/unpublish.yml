@@ -1,0 +1,315 @@
+name: Unpublish Site
+
+on:
+  schedule:
+    # Runs at midnight UTC on December 6, 2025
+    - cron: '0 0 6 12 *'
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  unpublish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Archive non-leader card pages
+        run: |
+          # Move non-leader cards to _archive folder (not served by GitHub Pages)
+          # Files are preserved in repo but not publicly accessible
+          mkdir -p _archive
+          mv spencer-barnes.html _archive/ 2>/dev/null || true
+          mv griffen-bono.html _archive/ 2>/dev/null || true
+          mv lily-fletcher.html lily-fletcher-photo.html _archive/ 2>/dev/null || true
+          mv justin-greenberg.html justin-greenberg-photo.html _archive/ 2>/dev/null || true
+          mv ivan-kuznetsov.html _archive/ 2>/dev/null || true
+          mv james-lacour.html _archive/ 2>/dev/null || true
+          mv joseph-montgomery.html _archive/ 2>/dev/null || true
+          mv hugo-pimentel.html _archive/ 2>/dev/null || true
+          mv jakob-michels.html jakob-michels-photo.html _archive/ 2>/dev/null || true
+
+      - name: Update index.html to show only leaders
+        run: |
+          cat > index.html << 'HTMLEOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Shipwright Team Cards</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="styles.css">
+            <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+            <style>
+              .index-page {
+                min-height: 100vh;
+                background: var(--color-bg-subtle);
+              }
+
+              /* Header with banner */
+              .index-header {
+                position: relative;
+                text-align: center;
+              }
+              .index-banner-wrapper {
+                position: relative;
+                overflow: hidden;
+                height: 200px;
+              }
+              .index-banner {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 55% center;
+                display: block;
+              }
+              .banner-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.15);
+              }
+              .banner-overlay h2 {
+                font-family: 'Libre Caslon Text', Georgia, serif;
+                font-size: 2rem;
+                font-weight: 400;
+                color: white;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+                margin: 0;
+                letter-spacing: 1px;
+              }
+              .index-header-content {
+                padding: 0 1rem 2rem;
+                margin-top: -10px;
+                position: relative;
+              }
+              .index-header .logo {
+                width: 216px;
+                margin: 0 auto 1.5rem;
+                display: block;
+                border-radius: 8px;
+                background: white;
+                padding: 12px;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+              }
+              .index-header h1 {
+                display: none;
+              }
+              .index-header p {
+                display: none;
+              }
+
+              /* Leader row - centered */
+              .leader-row {
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+                max-width: 1000px;
+                margin: 0 auto 1.5rem;
+                padding: 0 1rem;
+                flex-wrap: wrap;
+              }
+              .leader-row .employee-card {
+                width: 300px;
+                flex-shrink: 0;
+              }
+
+              /* Card grid - preserved for future conferences */
+              .card-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 0 1rem 2rem;
+              }
+              .card-grid .employee-card {
+                width: 300px;
+                flex-shrink: 0;
+              }
+              .employee-card {
+                background: var(--color-bg);
+                border-radius: var(--radius-lg);
+                box-shadow: var(--shadow-md);
+                padding: 1.5rem;
+              }
+              .employee-card h2 {
+                font-family: 'Libre Caslon Text', Georgia, serif;
+                font-size: 1.25rem;
+                color: var(--color-navy);
+                margin: 0 0 0.5rem;
+              }
+              .employee-card .contact {
+                font-size: 0.9rem;
+                color: var(--color-text-muted);
+                margin-bottom: 1rem;
+              }
+              .employee-card .contact a {
+                color: var(--color-text-muted);
+                text-decoration: none;
+                display: block;
+                margin: 0.25rem 0;
+              }
+              .employee-card .contact a:hover {
+                color: var(--color-primary);
+              }
+              .card-links a {
+                display: block;
+                text-align: center;
+                padding: 0.75rem 1rem;
+                border-radius: var(--radius-md);
+                font-size: 0.9rem;
+                font-weight: 500;
+                text-decoration: none;
+                background: var(--color-primary);
+                color: white;
+                transition: background 0.2s ease;
+              }
+              .card-links a:hover {
+                background: var(--color-primary-hover);
+              }
+
+              /* Main site link message */
+              .site-message {
+                text-align: center;
+                padding: 1rem 1rem 2rem;
+                color: var(--color-text-muted);
+                font-size: 1rem;
+              }
+              .site-message a {
+                color: var(--color-teal);
+                text-decoration: none;
+              }
+              .site-message a:hover {
+                text-decoration: underline;
+              }
+
+              /* Footer */
+              .index-footer {
+                text-align: center;
+                padding: 2rem 1rem;
+                border-top: 1px solid var(--color-border);
+                color: var(--color-text-muted);
+                font-size: 0.85rem;
+                background: var(--color-bg);
+                line-height: 1.6;
+              }
+              .index-footer a {
+                color: var(--color-teal);
+                text-decoration: none;
+              }
+              .index-footer a:hover {
+                text-decoration: underline;
+              }
+              .index-footer .phone {
+                font-size: 1rem;
+                color: var(--color-navy);
+                margin-bottom: 0.5rem;
+              }
+              .index-footer .address {
+                margin-bottom: 0.75rem;
+              }
+
+              @media (min-width: 480px) {
+                .index-banner-wrapper {
+                  height: 240px;
+                }
+                .banner-overlay h2 {
+                  font-size: 2.5rem;
+                }
+                .index-header .logo {
+                  width: 240px;
+                }
+              }
+            </style>
+          </head>
+          <body>
+            <main class="index-page">
+              <header class="index-header">
+                <div class="index-banner-wrapper">
+                  <img src="assets/shipwright-header.jpg" alt="" class="index-banner">
+                  <div class="banner-overlay">
+                    <h2>Your Maritime Partner</h2>
+                  </div>
+                </div>
+                <div class="index-header-content">
+                  <img src="https://images.squarespace-cdn.com/content/v1/54f8b5ebe4b0093011de8c63/1469219943827-FJKIOJEK7U7C83FQZYYZ/SHIPWRIGHT-LOGO-SQUAREx800v2.jpg?format=750w" alt="Shipwright" class="logo">
+                </div>
+              </header>
+
+              <div class="leader-row">
+
+                <div class="employee-card">
+                  <h2>John Dixon, P.E.</h2>
+                  <div class="contact">
+                    <a href="mailto:jdixon@shipwright.biz">jdixon@shipwright.biz</a>
+                    <a href="tel:+19542490127">(954) 249-0127</a>
+                  </div>
+                  <div class="card-links">
+                    <a href="john-dixon.html">View Card →</a>
+                  </div>
+                </div>
+
+                <div class="employee-card">
+                  <h2>Corey Page, P.E.</h2>
+                  <div class="contact">
+                    <a href="mailto:cpage@shipwright.biz">cpage@shipwright.biz</a>
+                    <a href="tel:+12394500120">(239) 450-0120</a>
+                  </div>
+                  <div class="card-links">
+                    <a href="corey-page.html">View Card →</a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Card grid preserved for future conferences - add employee cards here -->
+              <!-- <div class="card-grid">
+                <div class="employee-card">
+                  <h2>Employee Name</h2>
+                  <div class="contact">
+                    <a href="mailto:email@shipwright.biz">email@shipwright.biz</a>
+                    <a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a>
+                  </div>
+                  <div class="card-links">
+                    <a href="employee-name.html">View Card →</a>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="site-message">
+                <p>Visit our main site at <a href="https://www.shipwright.biz">shipwright.biz</a></p>
+              </div>
+
+              <footer class="index-footer">
+                <p class="phone"><a href="tel:+19548354885">(954) 835-4885</a></p>
+                <p class="address">
+                  2550 Eisenhower Boulevard, Suite 8<br>
+                  The Amman Building, Port Everglades<br>
+                  Fort Lauderdale, Florida 33316-3072 U.S.
+                </p>
+                <p><a href="https://www.shipwright.biz" target="_blank">shipwright.biz</a></p>
+              </footer>
+            </main>
+          </body>
+          </html>
+          HTMLEOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Post-conference update: Show leaders only"
+          git push
