@@ -249,6 +249,22 @@ git commit -m "Resolve merge conflict in <filename>"
 
 ---
 
+## Code Quality - Optimize at the Right Time
+
+Reference: https://abseil.io/fast/hints.html
+
+When writing code, choose the faster alternative if it does not significantly impact readability or complexity. Don't defer all performance concerns to "later" - a system built with no regard for performance ends up with a flat profile where there are no obvious hotspots to fix.
+
+However, prefer clear, idiomatic code when performance impact is negligible. It's easier to read, debug, and for compilers to optimize over time.
+
+**Balance these principles:**
+- Write simple, readable code as the baseline
+- Choose efficient approaches when the cost to readability is minimal
+- Don't micro-optimize prematurely, but don't ignore efficiency either
+- Profile before optimizing complex code paths
+
+---
+
 ## Important Notes
 
 - The `generate-assets.js` employee list may be out of sync with actual HTML files - always verify both when adding/removing employees
