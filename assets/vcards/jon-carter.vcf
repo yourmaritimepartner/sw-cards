@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Carter;Jon;;;
+FN:Jon Carter
+ORG:Shipwright
+TEL;TYPE=CELL:+19197246941
+EMAIL;TYPE=WORK:jcarter@shipwright.biz
+URL;TYPE=WORK:https://www.shipwright.biz
+URL;TYPE=PREF:https://cards.shipwright.biz/jon-carter.html
+END:VCARD

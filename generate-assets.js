@@ -83,6 +83,14 @@ const employees = [
     phone: '248-805-9107',
     linkedin: 'https://www.linkedin.com/company/shipwright/',
     website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Jon',
+    lastName: 'Carter',
+    email: 'jcarter@shipwright.biz',
+    phone: '919-724-6941',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
   }
 ];
 
