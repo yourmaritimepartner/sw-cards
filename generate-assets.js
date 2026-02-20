@@ -111,7 +111,7 @@ const employees = [
   {
     firstName: 'Rahul',
     lastName: 'Dev Raju',
-    email: 'rdevraju@shipwright.biz',
+    email: 'rraju@shipwright.biz',
     phone: '561-306-6253',
     linkedin: 'https://www.linkedin.com/company/shipwright/',
     website: 'https://www.shipwright.biz'
