@@ -123,6 +123,30 @@ const employees = [
     phone: '413-886-2739',
     linkedin: 'https://www.linkedin.com/company/shipwright/',
     website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Aidan',
+    lastName: 'Cavanaugh',
+    email: 'acavanaugh@shipwright.biz',
+    phone: '478-441-9097',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Tripp',
+    lastName: 'Dawson',
+    email: 'tdawson@shipwright.biz',
+    phone: '904-383-5833',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Ted',
+    lastName: 'Dixon',
+    email: 'tdixon@shipwright.biz',
+    phone: '954-695-8915',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
   }
 ];
 

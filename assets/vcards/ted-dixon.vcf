@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Dixon;Ted;;;
+FN:Ted Dixon
+ORG:Shipwright
+TEL;TYPE=CELL:+19546958915
+EMAIL;TYPE=WORK:tdixon@shipwright.biz
+URL;TYPE=WORK:https://www.shipwright.biz
+URL;TYPE=PREF:https://cards.shipwright.biz/ted-dixon.html
+END:VCARD
