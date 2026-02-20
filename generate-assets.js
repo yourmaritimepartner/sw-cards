@@ -91,6 +91,38 @@ const employees = [
     phone: '919-724-6941',
     linkedin: 'https://www.linkedin.com/company/shipwright/',
     website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Mack',
+    lastName: 'Fox',
+    email: 'mfox@shipwright.biz',
+    phone: '954-629-3314',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Jakob',
+    lastName: 'Michels',
+    email: 'jmichels@shipwright.biz',
+    phone: '772-485-6417',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Rahul',
+    lastName: 'Dev Raju',
+    email: 'rdevraju@shipwright.biz',
+    phone: '561-306-6253',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
+  },
+  {
+    firstName: 'Jack',
+    lastName: 'Szyluk',
+    email: 'jszyluk@shipwright.biz',
+    phone: '413-886-2739',
+    linkedin: 'https://www.linkedin.com/company/shipwright/',
+    website: 'https://www.shipwright.biz'
   }
 ];
 
@@ -99,7 +131,7 @@ const COMPANY = 'Shipwright';
 
 // Generate slug from name
 function toSlug(firstName, lastName) {
-  return `${firstName}-${lastName}`.toLowerCase();
+  return `${firstName}-${lastName}`.toLowerCase().replace(/\s+/g, '-');
 }
 
 // Generate vCard content
