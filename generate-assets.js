@@ -79,6 +79,7 @@ const employees = [
   {
     firstName: 'Hugo',
     lastName: 'Pimentel',
+    suffix: 'Ph.D.',
     email: 'hpimentel@shipwright.biz',
     phone: '248-805-9107',
     linkedin: 'https://www.linkedin.com/company/shipwright/',
@@ -161,12 +162,15 @@ function toSlug(firstName, lastName) {
 // Generate vCard content
 function generateVCard(employee) {
   const slug = toSlug(employee.firstName, employee.lastName);
-  const fullName = `${employee.firstName} ${employee.lastName}`;
+  const suffix = employee.suffix || '';
+  const fullName = suffix
+    ? `${employee.firstName} ${employee.lastName}, ${suffix}`
+    : `${employee.firstName} ${employee.lastName}`;
   const phoneDigits = employee.phone.replace(/\D/g, '');
-  
+
   return `BEGIN:VCARD
 VERSION:3.0
-N:${employee.lastName};${employee.firstName};;;
+N:${employee.lastName};${employee.firstName};;;${suffix}
 FN:${fullName}
 ORG:${COMPANY}
 TEL;TYPE=CELL:+1${phoneDigits}
