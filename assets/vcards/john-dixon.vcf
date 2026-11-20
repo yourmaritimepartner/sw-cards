@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Dixon;John;;;
+FN:John Dixon
+ORG:Shipwright
+TEL;TYPE=CELL:+19542490127
+EMAIL;TYPE=WORK:jdixon@shipwright.biz
+URL;TYPE=WORK:https://www.shipwright.biz
+URL;TYPE=PREF:https://cards.shipwright.biz/john-dixon.html
+END:VCARD
